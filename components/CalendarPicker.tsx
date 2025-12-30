@@ -30,6 +30,7 @@ interface CalendarPickerProps {
     minDate?: Date;
     maxDate?: Date;
     disabledDates?: Date[];
+    messageDates?: Date[];
     className?: string;
 }
 
@@ -109,6 +110,7 @@ export default function CalendarPicker({
     minDate,
     maxDate,
     disabledDates = [],
+    messageDates = [],
     className,
 }: CalendarPickerProps) {
     const [currentMonth, setCurrentMonth] = useState(startOfMonth(selectedDate));
@@ -135,7 +137,7 @@ export default function CalendarPicker({
     };
 
     const hasMessageOnDate = (date: Date) => {
-        return disabledDates.some((d) => isSameDay(d, date));
+        return messageDates.some((d) => isSameDay(d, date)) || disabledDates.some((d) => isSameDay(d, date));
     };
 
     const handleDateSelect = (date: Date) => {
