@@ -6,7 +6,7 @@ import { supabase } from './supabase';
 
 export const messagesApi = {
     /**
-     * Fetches the earliest unlockable message for today that hasn't been opened
+     * Fetches the message for today's date only
      */
     async getTodaysMessage(userId: string): Promise<Message | null> {
         const todayStr = format(new Date(), 'yyyy-MM-dd');
@@ -15,9 +15,7 @@ export const messagesApi = {
             .from('messages')
             .select('*')
             .eq('receiver', userId)
-            .lte('unlock_date', todayStr)
-            .order('unlock_date', { ascending: true })
-            .limit(1)
+            .eq('unlock_date', todayStr)
             .single();
 
         if (error && error.code !== 'PGRST116') {

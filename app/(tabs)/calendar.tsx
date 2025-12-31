@@ -93,7 +93,9 @@ export default function Calendar() {
                                 <Text className="text-terracotta text-sm font-medium mb-2">
                                     {unlockingToday ? "Ready to open today!" : "Ready to open"}
                                 </Text>
-                                <Text className="text-warmGray italic">Go to Today tab to reveal</Text>
+                                <Text className="text-warmGray italic">
+                                    {unlockingToday ? "Go to Today tab to reveal" : "You missed this one..."}
+                                </Text>
                             </View>
                         )
                     )}
@@ -101,7 +103,7 @@ export default function Calendar() {
 
                 <View className="mt-3 pt-3 border-t border-stone">
                     <Text className="text-xs text-warmGray">
-                        {item.opened ? "Opened" : (locked ? "Locked" : "Ready")}
+                        {item.opened ? "Opened" : (locked ? "Locked" : '')}
                     </Text>
                 </View>
             </View>
