@@ -8,20 +8,20 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#FAF8F5',
+          backgroundColor: '#1A1B2E',
           borderTopWidth: 0,
           elevation: 0,
-          shadowColor: '#3D3A36',
+          shadowColor: '#000',
           shadowOffset: { width: 0, height: -4 },
-          shadowOpacity: 0.06,
+          shadowOpacity: 0.3,
           shadowRadius: 12,
           height: Platform.OS === 'ios' ? 88 : 70,
           paddingBottom: Platform.OS === 'ios' ? 28 : 12,
           paddingTop: 12,
           paddingHorizontal: 8,
         },
-        tabBarActiveTintColor: '#3D3A36',
-        tabBarInactiveTintColor: '#B5AFA5',
+        tabBarActiveTintColor: '#F59E0B',
+        tabBarInactiveTintColor: '#8B92A8',
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: '600',
@@ -69,7 +69,7 @@ export default function TabsLayout() {
                 <Ionicons
                   name="add"
                   size={28}
-                  color="#FFFFFF"
+                  color="#1A1B2E"
                 />
               </View>
             </View>
@@ -117,17 +117,18 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#D4A574',
+    backgroundColor: '#F59E0B',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#D4A574',
+    shadowColor: '#F59E0B',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.35,
-    shadowRadius: 8,
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
     elevation: 8,
   },
   addButtonActive: {
-    backgroundColor: '#C49464',
+    backgroundColor: '#FBBF24',
     transform: [{ scale: 1.05 }],
   },
 });
+

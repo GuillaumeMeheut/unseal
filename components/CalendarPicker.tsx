@@ -79,26 +79,26 @@ function DayCell({
             style={animatedStyle}
             className={clsx(
                 'w-10 h-10 rounded-full items-center justify-center mx-auto',
-                isSelected && 'bg-charcoal',
-                !isSelected && today && 'border border-terracotta',
+                isSelected && 'bg-indigo',
+                !isSelected && today && 'border-2 border-gold',
                 !isSelected && !today && !isDisabled && 'bg-transparent',
-                hasMessage && !isSelected && 'bg-sage/30'
+                hasMessage && !isSelected && 'bg-coral/20'
             )}
         >
             <Text
                 className={clsx(
                     'text-base',
-                    isSelected && 'text-cream font-medium',
-                    !isSelected && isCurrentMonth && !isDisabled && 'text-charcoal',
-                    !isSelected && !isCurrentMonth && 'text-warmGray/40',
-                    isDisabled && !hasMessage && 'text-warmGray/40',
-                    hasMessage && isDisabled && 'text-warmGray'
+                    isSelected && 'text-snowWhite font-semibold',
+                    !isSelected && isCurrentMonth && !isDisabled && 'text-snowWhite',
+                    !isSelected && !isCurrentMonth && 'text-lavender/40',
+                    isDisabled && !hasMessage && 'text-lavender/40',
+                    hasMessage && isDisabled && 'text-lavender'
                 )}
             >
                 {format(date, 'd')}
             </Text>
             {hasMessage && !isSelected && (
-                <View className="absolute bottom-1 w-1 h-1 rounded-full bg-sage" />
+                <View className="absolute bottom-1 w-1.5 h-1.5 rounded-full bg-coral" />
             )}
         </AnimatedPressable>
     );
@@ -152,7 +152,7 @@ export default function CalendarPicker({
         : false;
 
     return (
-        <View className={clsx('bg-sand rounded-2xl p-4', className)}>
+        <View className={clsx('bg-plum rounded-2xl p-4 border border-grape', className)}>
             {/* Header with month navigation */}
             <View className="flex-row items-center justify-between mb-4">
                 <Pressable
@@ -163,11 +163,11 @@ export default function CalendarPicker({
                         isPrevMonthDisabled && 'opacity-30'
                     )}
                 >
-                    <Text className="text-charcoal text-xl">‹</Text>
+                    <Text className="text-snowWhite text-xl">‹</Text>
                 </Pressable>
 
                 <Animated.View key={format(currentMonth, 'yyyy-MM')} entering={FadeIn.duration(200)} exiting={FadeOut.duration(100)}>
-                    <Text className="text-charcoal text-lg font-medium">
+                    <Text className="text-snowWhite text-lg font-medium">
                         {format(currentMonth, 'MMMM yyyy')}
                     </Text>
                 </Animated.View>
@@ -176,7 +176,7 @@ export default function CalendarPicker({
                     onPress={goToNextMonth}
                     className="w-10 h-10 rounded-full items-center justify-center"
                 >
-                    <Text className="text-charcoal text-xl">›</Text>
+                    <Text className="text-snowWhite text-xl">›</Text>
                 </Pressable>
             </View>
 
@@ -184,7 +184,7 @@ export default function CalendarPicker({
             <View className="flex-row mb-2">
                 {WEEKDAYS.map((day) => (
                     <View key={day} className="flex-1 items-center">
-                        <Text className="text-warmGray text-xs font-medium uppercase tracking-wide">
+                        <Text className="text-lavender text-xs font-medium uppercase tracking-wide">
                             {day}
                         </Text>
                     </View>
@@ -212,14 +212,15 @@ export default function CalendarPicker({
             {/* Legend */}
             <View className="flex-row items-center justify-center mt-4 space-x-4">
                 <View className="flex-row items-center">
-                    <View className="w-3 h-3 rounded-full bg-sage/30 mr-1" />
-                    <Text className="text-warmGray text-xs">Has message</Text>
+                    <View className="w-3 h-3 rounded-full bg-coral/30 mr-1" />
+                    <Text className="text-lavender text-xs">Has message</Text>
                 </View>
                 <View className="flex-row items-center ml-4">
-                    <View className="w-3 h-3 rounded-full border border-terracotta mr-1" />
-                    <Text className="text-warmGray text-xs">Today</Text>
+                    <View className="w-3 h-3 rounded-full border-2 border-gold mr-1" />
+                    <Text className="text-lavender text-xs">Today</Text>
                 </View>
             </View>
         </View>
     );
 }
+

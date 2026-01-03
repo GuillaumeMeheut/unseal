@@ -1,8 +1,14 @@
 -- Create tables
-create table partners (
+create table partnerships (
   id uuid default uuid_generate_v4() primary key,
-  user_id uuid references auth.users(id) unique,
-  partner_id uuid references auth.users(id)
+  user_a uuid references auth.users(id) not null,  -- requester
+  user_b uuid references auth.users(id) not null,  -- receiver
+  status text default 'pending' check (status in ('pending', 'accepted')),
+  relationship_date date,
+  current_streak integer default 0,
+  last_streak_date date,
+  created_at timestamp default now(),
+  unique(user_a, user_b)
 );
 
 create table messages (
@@ -16,19 +22,20 @@ create table messages (
 );
 
 -- Enable RLS
-alter table partners enable row level security;
+alter table partnerships enable row level security;
 alter table messages enable row level security;
 
--- Policies (Simple for MVP)
-create policy "Users can see their own partner entry" on partners
-  for select using (auth.uid() = user_id);
+-- Policies for partnerships
+create policy "Users can see partnerships they're part of" on partnerships
+  for select using (auth.uid() = user_a or auth.uid() = user_b);
 
-create policy "Users can insert their own partner entry" on partners
-  for insert with check (auth.uid() = user_id);
-  
-create policy "Users can update their own partner entry" on partners
-  for update using (auth.uid() = user_id);
+create policy "Users can create partnership requests" on partnerships
+  for insert with check (auth.uid() = user_a);
 
+create policy "Users can update partnerships they're part of" on partnerships
+  for update using (auth.uid() = user_a or auth.uid() = user_b);
+
+-- Policies for messages
 create policy "Users can see messages sent to them or by them" on messages
   for select using (auth.uid() = sender or auth.uid() = receiver);
 

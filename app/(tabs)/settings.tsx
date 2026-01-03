@@ -17,23 +17,23 @@ export default function Settings() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-cream px-8 pt-8">
-            <Text className="text-3xl font-light text-charcoal mb-10">Settings</Text>
+        <SafeAreaView className="flex-1 bg-midnight px-8 pt-8">
+            <Text className="text-3xl font-light text-snowWhite mb-10">Settings</Text>
 
-            <View className="bg-sand p-6 rounded-2xl border border-stone mb-6">
+            <View className="bg-plum p-6 rounded-2xl border border-grape mb-6">
                 <View className="mb-6">
-                    <Text className="text-warmGray text-sm font-medium tracking-wide uppercase mb-2">
+                    <Text className="text-lavender text-sm font-medium tracking-wide uppercase mb-2">
                         Account
                     </Text>
-                    <Text className="text-charcoal">{user?.email}</Text>
+                    <Text className="text-snowWhite">{user?.email}</Text>
                 </View>
 
                 <View>
-                    <Text className="text-warmGray text-sm font-medium tracking-wide uppercase mb-2">
+                    <Text className="text-lavender text-sm font-medium tracking-wide uppercase mb-2">
                         Partner
                     </Text>
-                    <Text className="text-charcoal">
-                        {partnerId ? "Connected" : "Not connected"}
+                    <Text className={partnerId ? "text-mint" : "text-lavender"}>
+                        {partnerId ? "Connected ✓" : "Not connected"}
                     </Text>
                 </View>
             </View>
@@ -52,8 +52,9 @@ export default function Settings() {
             </View>
 
             <View className="flex-1 justify-end items-center pb-4">
-                <Text className="text-warmGray text-xs">Unseal v1.0.0</Text>
+                <Text className="text-lavender text-xs">Unseal v1.0.0</Text>
             </View>
         </SafeAreaView>
     );
 }
+

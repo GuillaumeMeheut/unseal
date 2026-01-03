@@ -11,16 +11,17 @@ export default function Input({ label, className, error, ...props }: InputProps)
     return (
         <View className={clsx("w-full mb-5", className)}>
             {label && (
-                <Text className="text-warmGray text-sm font-medium mb-2 tracking-wide uppercase">
+                <Text className="text-lavender text-sm font-medium mb-2 tracking-wide uppercase">
                     {label}
                 </Text>
             )}
             <TextInput
-                placeholderTextColor="#9A948A"
-                className="w-full bg-sand p-4 rounded-xl text-charcoal border border-stone"
+                placeholderTextColor="#9B8AA8"
+                className="w-full bg-plum p-4 rounded-xl text-snowWhite border border-grape"
                 {...props}
             />
-            {error && <Text className="text-terracotta text-sm mt-2">{error}</Text>}
+            {error && <Text className="text-coral text-sm mt-2">{error}</Text>}
         </View>
     );
 }
+

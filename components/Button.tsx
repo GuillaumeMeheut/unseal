@@ -33,17 +33,17 @@ export default function Button({ onPress, title, variant = 'primary', className,
     const baseStyles = "py-4 px-8 rounded-2xl items-center justify-center";
 
     const variants = {
-        primary: "bg-charcoal",
-        secondary: "bg-sand border border-stone",
-        outline: "border border-charcoal bg-transparent",
+        primary: "bg-coral",
+        secondary: "bg-plum border border-grape",
+        outline: "border border-lavender bg-transparent",
         ghost: "bg-transparent",
     };
 
     const textStyles = {
-        primary: "text-cream font-medium text-base tracking-wide",
-        secondary: "text-charcoal font-medium text-base",
-        outline: "text-charcoal font-medium text-base",
-        ghost: "text-warmGray font-medium text-base",
+        primary: "text-midnight font-semibold text-base tracking-wide",
+        secondary: "text-snowWhite font-medium text-base",
+        outline: "text-lavender font-medium text-base",
+        ghost: "text-lavender font-medium text-base",
     };
 
     return (
@@ -56,10 +56,11 @@ export default function Button({ onPress, title, variant = 'primary', className,
             style={animatedStyle}
         >
             {isLoading ? (
-                <ActivityIndicator color={variant === 'primary' ? '#FAF8F5' : '#3D3A36'} />
+                <ActivityIndicator color={variant === 'primary' ? '#1A1625' : '#F8F7FF'} />
             ) : (
                 <Text className={clsx(textStyles[variant])}>{title}</Text>
             )}
         </AnimatedTouchableOpacity>
     );
 }
+

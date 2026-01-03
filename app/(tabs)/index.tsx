@@ -288,7 +288,7 @@ export default function DailyUnlock() {
       <View style={styles.content}>
         {loading ? (
           <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#C4A484" />
+            <ActivityIndicator size="large" color="#F59E0B" />
             <Text style={styles.loadingText}>Checking for messages...</Text>
           </View>
         ) : todaysMessage ? (
@@ -385,7 +385,7 @@ function getGreeting() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAF8F5',
+    backgroundColor: '#1A1B2E',
   },
   header: {
     paddingHorizontal: 32,
@@ -394,13 +394,13 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 16,
-    color: '#9A948A',
+    color: '#8B92A8',
     fontWeight: '400',
     marginBottom: 4,
   },
   title: {
     fontSize: 28,
-    color: '#3D3A36',
+    color: '#FFFEF5',
     fontWeight: '300',
     letterSpacing: -0.5,
   },
@@ -416,7 +416,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 16,
     fontSize: 14,
-    color: '#9A948A',
+    color: '#8B92A8',
   },
   envelopeContainer: {
     alignItems: 'center',
@@ -425,16 +425,16 @@ const styles = StyleSheet.create({
   envelope: {
     width: SCREEN_WIDTH - 48,
     minHeight: ENVELOPE_HEIGHT,
-    backgroundColor: '#F5F0E8',
+    backgroundColor: '#252A40',
     borderRadius: 24,
     overflow: 'hidden',
-    shadowColor: '#C4A484',
+    shadowColor: '#F59E0B',
     shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.2,
     shadowRadius: 24,
     elevation: 8,
     borderWidth: 1,
-    borderColor: '#E8E2D9',
+    borderColor: '#3A4158',
   },
   shimmer: {
     position: 'absolute',
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     width: 100,
-    backgroundColor: 'rgba(255,255,255,0.4)',
+    backgroundColor: 'rgba(255,255,255,0.1)',
     transform: [{ skewX: '-20deg' }],
   },
   flap: {
@@ -457,7 +457,7 @@ const styles = StyleSheet.create({
   },
   flapInner: {
     flex: 1,
-    backgroundColor: '#E8E2D9',
+    backgroundColor: '#3A4158',
     borderBottomLeftRadius: 80,
     borderBottomRightRadius: 80,
   },
@@ -476,18 +476,18 @@ const styles = StyleSheet.create({
     width: SEAL_SIZE + 40,
     height: SEAL_SIZE + 40,
     borderRadius: (SEAL_SIZE + 40) / 2,
-    backgroundColor: '#D4B5A0',
+    backgroundColor: '#FBBF24',
   },
   seal: {
     width: SEAL_SIZE,
     height: SEAL_SIZE,
     borderRadius: SEAL_SIZE / 2,
-    backgroundColor: '#C4A484',
+    backgroundColor: '#F59E0B',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#3D3A36',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 4,
   },
@@ -500,7 +500,7 @@ const styles = StyleSheet.create({
     height: SEAL_SIZE + 30,
     borderRadius: (SEAL_SIZE + 30) / 2,
     borderWidth: 3,
-    borderColor: '#A8B5A0',
+    borderColor: '#FBBF24',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
   },
   dateLabel: {
     fontSize: 12,
-    color: '#9A948A',
+    color: '#8B92A8',
     fontWeight: '600',
     letterSpacing: 1.5,
     textTransform: 'uppercase',
@@ -527,13 +527,13 @@ const styles = StyleSheet.create({
   divider: {
     width: 40,
     height: 2,
-    backgroundColor: '#E8E2D9',
+    backgroundColor: '#3A4158',
     borderRadius: 1,
     marginBottom: 24,
   },
   messageText: {
     fontSize: 20,
-    color: '#3D3A36',
+    color: '#FFFEF5',
     textAlign: 'center',
     fontWeight: '300',
     lineHeight: 32,
@@ -548,7 +548,7 @@ const styles = StyleSheet.create({
   instructionText: {
     marginTop: 32,
     fontSize: 14,
-    color: '#9A948A',
+    color: '#8B92A8',
     fontWeight: '500',
     letterSpacing: 0.5,
   },
@@ -560,32 +560,33 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 28,
-    backgroundColor: '#F5F0E8',
+    backgroundColor: '#252A40',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 24,
     borderWidth: 1,
-    borderColor: '#E8E2D9',
+    borderColor: '#3A4158',
   },
   emptyIcon: {
     fontSize: 44,
   },
   emptyTitle: {
     fontSize: 22,
-    color: '#3D3A36',
+    color: '#FFFEF5',
     fontWeight: '300',
     marginBottom: 12,
   },
   emptySubtitle: {
     fontSize: 15,
-    color: '#9A948A',
+    color: '#8B92A8',
     textAlign: 'center',
     lineHeight: 24,
     marginBottom: 24,
   },
   emptyHint: {
     fontSize: 14,
-    color: '#C4A484',
+    color: '#F59E0B',
     fontWeight: '500',
   },
 });
+

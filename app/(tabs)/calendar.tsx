@@ -49,23 +49,23 @@ export default function Calendar() {
                 className={clsx(
                     "p-5 rounded-2xl mb-3 border-l-4",
                     isMeSender
-                        ? "bg-sand border-sage"
+                        ? "bg-plum border-mint"
                         : isUnlocked
-                            ? "bg-cream border-terracotta"
-                            : "bg-cream border-terracotta/40 opacity-80"
+                            ? "bg-plum border-coral"
+                            : "bg-plum/60 border-coral/40 opacity-80"
                 )}
             >
                 <View className="flex-row justify-between items-center mb-3">
-                    <Text className="text-warmGray text-sm font-medium tracking-wide">
+                    <Text className="text-lavender text-sm font-medium tracking-wide">
                         {format(unlockDate, 'MMM d, yyyy')}
                     </Text>
                     <View className={clsx(
                         "px-2 py-1 rounded-full",
-                        isMeSender ? "bg-sage/20" : "bg-terracotta/20"
+                        isMeSender ? "bg-mint/20" : "bg-coral/20"
                     )}>
                         <Text className={clsx(
                             "text-xs uppercase tracking-wide font-medium",
-                            isMeSender ? "text-sage" : "text-terracotta"
+                            isMeSender ? "text-mint" : "text-coral"
                         )}>
                             {isMeSender ? "Sent" : "Received"}
                         </Text>
@@ -75,25 +75,25 @@ export default function Calendar() {
                 <View>
                     {isMeSender ? (
                         // Sender can always see their own message
-                        <Text className="text-charcoal leading-6">{item.content}</Text>
+                        <Text className="text-snowWhite leading-6">{item.content}</Text>
                     ) : (
                         // Receiver sees different states
                         item.opened ? (
                             // Message has been opened - show content
-                            <Text className="text-charcoal leading-6">{item.content}</Text>
+                            <Text className="text-snowWhite leading-6">{item.content}</Text>
                         ) : locked ? (
                             // Message is still locked
                             <View>
-                                <Text className="text-warmGray italic">A surprise is waiting...</Text>
-                                <Text className="text-warmGray/60 text-xs mt-1">Will unlock on {format(unlockDate, 'MMM d')}</Text>
+                                <Text className="text-lavender italic">A surprise is waiting...</Text>
+                                <Text className="text-lavender/60 text-xs mt-1">Will unlock on {format(unlockDate, 'MMM d')}</Text>
                             </View>
                         ) : (
                             // Message is unlocked but not yet opened
                             <View>
-                                <Text className="text-terracotta text-sm font-medium mb-2">
+                                <Text className="text-coral text-sm font-medium mb-2">
                                     {unlockingToday ? "Ready to open today!" : "Ready to open"}
                                 </Text>
-                                <Text className="text-warmGray italic">
+                                <Text className="text-lavender italic">
                                     {unlockingToday ? "Go to Today tab to reveal" : "You missed this one..."}
                                 </Text>
                             </View>
@@ -101,9 +101,9 @@ export default function Calendar() {
                     )}
                 </View>
 
-                <View className="mt-3 pt-3 border-t border-stone">
-                    <Text className="text-xs text-warmGray">
-                        {item.opened ? "Opened" : (locked ? "Locked" : '')}
+                <View className="mt-3 pt-3 border-t border-grape">
+                    <Text className="text-xs text-lavender">
+                        {item.opened ? "Opened ✓" : (locked ? "🔒 Locked" : '')}
                     </Text>
                 </View>
             </View>
@@ -111,16 +111,16 @@ export default function Calendar() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-cream">
+        <SafeAreaView className="flex-1 bg-midnight">
             <ScrollView
                 className="flex-1 px-6 pt-6"
                 showsVerticalScrollIndicator={false}
             >
-                <Text className="text-3xl font-light text-charcoal mb-2">Timeline</Text>
-                <Text className="text-warmGray mb-6">Your sealed moments</Text>
+                <Text className="text-3xl font-light text-snowWhite mb-2">Timeline</Text>
+                <Text className="text-lavender mb-6">Your sealed moments</Text>
 
                 {loading ? (
-                    <ActivityIndicator size="large" color="#C4A484" />
+                    <ActivityIndicator size="large" color="#FF6B6B" />
                 ) : (
                     <>
                         {/* Calendar Picker */}
@@ -133,12 +133,12 @@ export default function Calendar() {
 
                         {/* Selected Date Header */}
                         <View className="mb-4">
-                            <Text className="text-lg font-medium text-charcoal">
+                            <Text className="text-lg font-medium text-snowWhite">
                                 {isToday(selectedDate)
                                     ? "Today"
                                     : format(selectedDate, 'EEEE, MMMM d')}
                             </Text>
-                            <Text className="text-warmGray text-sm mt-1">
+                            <Text className="text-lavender text-sm mt-1">
                                 {messagesForSelectedDate.length === 0
                                     ? "No messages for this date"
                                     : `${messagesForSelectedDate.length} message${messagesForSelectedDate.length > 1 ? 's' : ''}`}
@@ -150,11 +150,11 @@ export default function Calendar() {
                             {messagesForSelectedDate.length > 0 ? (
                                 messagesForSelectedDate.map(renderMessageCard)
                             ) : (
-                                <View className="bg-sand rounded-2xl p-6 items-center">
-                                    <Text className="text-warmGray text-center">
+                                <View className="bg-plum rounded-2xl p-6 items-center border border-grape">
+                                    <Text className="text-lavender text-center">
                                         No messages sealed for this date
                                     </Text>
-                                    <Text className="text-warmGray/60 text-sm text-center mt-2">
+                                    <Text className="text-lavender/60 text-sm text-center mt-2">
                                         Tap on a highlighted date to view messages
                                     </Text>
                                 </View>
@@ -166,3 +166,4 @@ export default function Calendar() {
         </SafeAreaView>
     );
 }
+

@@ -32,12 +32,12 @@ export default function Login() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-cream px-8 pt-8">
+        <SafeAreaView className="flex-1 bg-midnight px-8 pt-8">
             <View className="flex-1 justify-center">
-                <Text className="text-3xl font-light text-charcoal mb-2">
+                <Text className="text-3xl font-light text-snowWhite mb-2">
                     Welcome back
                 </Text>
-                <Text className="text-warmGray mb-10">
+                <Text className="text-lavender mb-10">
                     Sign in to continue
                 </Text>
 
@@ -75,9 +75,9 @@ export default function Login() {
 
                 <View className="mt-10">
                     <View className="flex-row items-center mb-6">
-                        <View className="flex-1 h-px bg-stone" />
-                        <Text className="mx-4 text-warmGray text-sm">or</Text>
-                        <View className="flex-1 h-px bg-stone" />
+                        <View className="flex-1 h-px bg-grape" />
+                        <Text className="mx-4 text-lavender text-sm">or</Text>
+                        <View className="flex-1 h-px bg-grape" />
                     </View>
 
                     <Button
@@ -103,3 +103,4 @@ export default function Login() {
         </SafeAreaView>
     );
 }
+
